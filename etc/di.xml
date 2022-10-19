@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="StorefrontX\ProductAttributesGraphQl\Model\IgnoredFields">
+        <arguments>
+            <argument name="ignoredFields" xsi:type="array">
+                <item name="media_gallery" xsi:type="string">media_gallery</item>
+                <item name="gallery" xsi:type="string">gallery</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\CatalogGraphQl\Model\Resolver\Products\DataProvider\Product\CompositeCollectionProcessor">
+        <arguments>
+            <argument name="collectionProcessors" xsi:type="array">
+                <item name="sfx_attributes" xsi:type="object">StorefrontX\ProductAttributesGraphQl\Model\Resolver\Products\DataProvider\Product\CollectionProcessor\SFXAttributesProcessor</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
+

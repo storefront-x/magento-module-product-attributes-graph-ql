@@ -1,0 +1,15 @@
+interface ProductInterface {
+    sfx_attributes: [SFXAttributes] @resolver(class: "StorefrontX\\ProductAttributesGraphQl\\Model\\Resolver\\SFXProductAttributesGraphQl")
+}
+
+type SFXAttributes {
+    attribute_code: String
+    frontend_label: String
+    value: String
+    attribute_options: [SFXAttributeOption]
+}
+
+type SFXAttributeOption {
+    options_id: Int
+    option_value: String
+}

@@ -1,0 +1,22 @@
+{
+    "name": "storefront-x/magento-module-product-attributes-graph-ql",
+    "description": "Magento 2 module - provides SFX product attributes through GraphQL",
+    "type": "magento2-module",
+    "homepage": "https://github.com/storefront-x/magento-module-product-attributes-graph-ql",
+    "require": {
+        "php": ">=7.4",
+        "psr/log": "*",
+        "magento/magento-composer-installer": "*"
+    },
+    "license": [
+        "MIT"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "StorefrontX\\ProductAttributesGraphQl\\": ""
+        }
+    }
+}
