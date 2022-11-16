@@ -13,6 +13,7 @@ use Magento\Store\Model\StoreManagerInterface;
 use Magento\Catalog\Model\Product;
 use Psr\Log\LoggerInterface;
 use StorefrontX\ProductAttributesGraphQl\Model\IgnoredFields;
+use Magento\Catalog\Model\ProductRepository;
 
 class SFXProductAttributesGraphQl implements ResolverInterface
 {
@@ -21,13 +22,16 @@ class SFXProductAttributesGraphQl implements ResolverInterface
     protected LoggerInterface $logger;
     protected array $cachedAttributes = [];
     protected IgnoredFields $ignoredFields;
+    protected ProductRepository $productRepository;
 
     public function __construct(
         StoreManagerInterface $storeManager,
+        ProductRepository $productRepository,
         LoggerInterface $logger,
         IgnoredFields $ignoredFields
     ) {
         $this->storeManager = $storeManager;
+        $this->productRepository = $productRepository;
         $this->logger = $logger;
         $this->ignoredFields = $ignoredFields;
     }
@@ -46,7 +50,8 @@ class SFXProductAttributesGraphQl implements ResolverInterface
 
         $attributesArray = [];
         /** @var Product $product */
-        $product = $value['model'];
+        $product = $this->productRepository->get($value['sku']);
+
 
         $attributes = $this->getAttributes($product);
         foreach ($attributes as $key => $attribute) {
