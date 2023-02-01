@@ -1,5 +1,5 @@
 interface ProductInterface {
-    sfx_attributes: [SFXAttributes] @resolver(class: "StorefrontX\\ProductAttributesGraphQl\\Model\\Resolver\\SFXProductAttributesGraphQl")
+    sfx_attributes: [SFXAttributes] @resolver(class: "StorefrontX\\ProductAttributesGraphQl\\Model\\Resolver\\SFXProductAttributesGraphQl") @doc(description: "Storefront-x atributes") @cache(cacheIdentity: "StorefrontX\\ProductAttributesGraphQl\\Model\\Resolver\\Attributes\\Identity")
 }
 
 type SFXAttributes {

@@ -52,7 +52,6 @@ class SFXProductAttributesGraphQl implements ResolverInterface
         /** @var Product $product */
         $product = $this->productRepository->get($value['sku']);
 
-
         $attributes = $this->getAttributes($product);
         foreach ($attributes as $key => $attribute) {
             $value = $product->getData($attribute->getAttributeCode());
