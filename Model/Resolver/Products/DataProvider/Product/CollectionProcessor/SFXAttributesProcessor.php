@@ -49,7 +49,7 @@ class SFXAttributesProcessor implements CollectionProcessorInterface
         Collection $collection,
         SearchCriteriaInterface $searchCriteria,
         array $attributeNames,
-        ContextInterface $context = null
+        ?ContextInterface $context = null
     ): Collection {
 
         if (in_array(self::SFX_ATTR_KEY, $attributeNames)) {
